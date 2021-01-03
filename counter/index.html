@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Simple Clock App</title>
+</head>
+<body>
+  <h1>Current Time: {{ current_time }}</h1>
+  {% if mode==1 %}
+  {% if user %}
+  <p>Welcome, {{ user.email() }}!<br/>
+    You can <a href={{ logout_url }}>sign out</a>
+  </p>
+  {% else %}
+  <h2>Nobody home</h2>
+  You can <a href={{ login_url }}>sign in</a>
+  {% endif %}
+  <form action="/onSubmit" method="post">
+    <div>answer<input type="text" name="answer"></div>
+    <div><input type="submit" value="Submit"></div>
+  </form>
+  {% endif %}
+  {% if mode == 2 %}
+  <h2>The counter is now {{counter}}</h2>
+  <h2>The answer was: {{ answer }}</h2>
+  <form action="/onSubmit" method="post">
+    <div>answer<input type="text" name="answer"></div>
+    <div><input type="submit" value="Submit"></div>
+  </form>
+  <h3>line from files is: <em>{{ line }}</em></h3>
+  {% endif %}
+</body>
+</html>

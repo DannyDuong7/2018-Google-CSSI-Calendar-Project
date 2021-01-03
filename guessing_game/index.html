@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>Simple Clock App</title>
+</head>
+<body>
+  <h1>Current Time: {{ current_time }}</h1>
+  {% if mode==1 %}
+  {% if user %}
+  <p>Welcome, {{ user.email() }}!<br/>
+    You can <a href={{ logout_url }}>sign out</a>
+  </p>
+  {% else %}
+  <h2>Nobody home</h2>
+  You can <a href={{ login_url }}>sign in</a>
+  {% endif %}
+  <h2>Want to play a game? Enter a number in the answer box below from 1 to 20.</h2>
+    <form action="/onSubmit" method="post">
+      <div>answer<input type="text" name="answer"></div>
+      <div><input type="submit" value="Submit"></div>
+    </form>
+  {% endif %}
+  {% if mode == 2 %}
+  <h2>The counter is now {{counter}}</h2>
+  <h2>{{ answer }}</h2>
+    <form action="/onSubmit" method="post">
+      <div>answer<input type="text" name="answer"></div>
+      <div><input type="submit" value="Submit"></div>
+    </form>
+  {% endif %}
+    {% if mode == 3 %}
+    <h1>{{answer}}{{counter}} Tries</h1>
+    {% endif %}
+</body>
+</html>
