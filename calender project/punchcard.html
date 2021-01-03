@@ -1,0 +1,347 @@
+<html>
+<head>
+  <title>2018 Calendar</title>
+  <style>
+  ul {list-style-type: none;}
+body {
+  font-family: Verdana, sans-serif;
+  background-image: url("https://wallpapercave.com/wp/7fShmTL.jpg");
+  background-color: #cccccc;
+  background-attachment:fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.groove
+{
+  border-style: groove;
+  padding: 10px;
+  width: 25%;
+  margin:auto;
+  background-color: #eee9e9;
+}
+
+.groove:hover{
+  transition: 1s;
+  background-color: #FA7255;
+}
+
+.size{
+  padding: 5px;
+  width: 31px;
+  height: 22px;
+}
+
+/* Month header */
+.month {
+    padding: 70px 25px;
+    width: 96%;
+    background: #1abc9c;
+    text-align: center;
+}
+
+/* Month list */
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color:#ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important;
+  }
+  </style>
+</head>
+<body>
+  <!--script src="punchcard.js"></script!-->
+  {% if mode == 1 %}
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <h1 style="text-align:center" class='groove'>Login to PunchCard</h1>
+  {% if user %}
+  <p style='text-align:center' class='groove'>Welcome, {{ user.email() }}!<br/>
+    You can <a href={{ logout_url }}>sign out</a>
+  </p>
+  {% else %}
+  <h2 style="text-align:center" class='groove'>Nobody home <br/> You can <a href={{ login_url }}>sign in</a></h2>
+  {% endif %}
+  <form action="/" method="post">
+    <div class='groove' style="text-align:center">Password{{ wrong }}<input type="text" name="password"></div>
+    <div style="text-align:center"><input type="submit" value="Submit"></div>
+  </form>
+  {% endif %}
+  {% if mode == 2 %}
+    <div class="month">
+         <ul>
+           <li><button id="prev" class='prev'>&#10094;</button></li>
+           <li><button id='next' class='next'>&#10095;</button></li>
+           <li id='months'>August<br><span style="font-size:18px">2018</span></li>
+         </ul>
+       </div>
+
+       <ul class="weekdays">
+         <li>Mo</li>
+         <li>Tu</li>
+         <li>We</li>
+         <li>Th</li>
+         <li>Fr</li>
+         <li>Sa</li>
+         <li>Su</li>
+       </ul>
+       <form action="/clock" method=get>
+       <ul class="days">
+         <li><button class = 'size' name="select" id='d1' value='08/01/18'>1</button></li>
+         <li><button class = 'size' id='2' name="select" value='08/02/18'>2</button></li>
+         <li><button class = 'size' id='3' name="select" value='08/03/18'>3</button></li>
+         <li><button class = 'size' id='4' name="select" value='08/04/18'>4</button></li>
+         <li><button class = 'size' id='5' name="select" value='08/05/18'>5</button></li>
+         <li><button class = 'size' id='6' name="select" value='08/06/18'>6</button></li>
+         <li><button class = 'size' id='7' name="select" value='08/07/18'>7</button></li>
+         <li><button class = 'size' id='8' name="select" value='08/08/18'>8</button></li>
+         <li><button class = 'size' id='9' name="select" value='08/09/18'>9</button></li>
+         <li><button id='10' name="select" value='08/10/18'>10</button></li>
+         <li><button id='11' name="select" value='08/11/18'>11</button></li>
+         <li><button id='12' name="select" value='08/12/18'>12</button></li>
+         <li><button id='13' name="select" value='08/13/18'>13</button></li>
+         <li><button id='14' name="select" value='08/14/18'>14</button></li>
+         <li><button id='15' name="select" value='08/15/18'>15</button></li>
+         <li><button id='16' name="select" value='08/16/18'>16</button></li>
+         <li><button id='17' name="select" value='08/17/18'>17</button></li>
+         <li><button id='18' name="select" value='08/18/18'>18</button></li>
+         <li><button id='19' name="select" value='08/19/18'>19</button></li>
+         <li><button id='20' name="select" value='08/20/18'>20</button></li>
+         <li><button id='21' name="select" value='08/21/18'>21</button></li>
+         <li><button id='22' name="select" value='08/22/18'>22</button></li>
+         <li><button id='23' name="select" value='08/23/18'>23</button></li>
+         <li><button id='24' name="select" value='08/24/18'>24</button></li>
+         <li><button id='25' name="select" value='08/25/18'>25</button></li>
+         <li><button id='26' name="select" value='08/26/18'>26</button></li>
+         <li><button id='27' name="select" value='08/27/18'>27</button></li>
+         <li><button id='28' name="select" value='08/28/18'>28</button></li>
+         <li><button id='29' name="select" value='08/29/18'>29</button></li>
+         <li><button id='30' name="select" value='08/30/18'>30</button></li>
+         <li><button id='31' name="select" value='08/31/18'>31</button></li>
+       </form>
+       <h3 class='groove'>Amount made: {{ pay }}
+  <script>
+  //function myfunction(){
+   //var x = document.getElementById("d1");
+   //for(i = 0;i<x.length; i++)
+   //{
+     //x.addEventListener("click", () =>{
+
+
+ //}
+//}
+  </script>
+     <!--<h1>{{ welcome }}</h1>
+     <br>
+     <h2>{{ date }}</h2>
+     <br>
+     <h2>{{ row }}</h2>-->
+     <form action="/onSubmit" method="post">
+     </form>
+     {% endif %}
+  {% if mode == 3 %}
+   <form action="/onSubmit" method="post">
+    <div><input type="submit" value="Return To Calendar"></div>
+  </form>
+  <h3 class='groove' style = "vertical-align: text-top", "text-align: right">Date: {{ Date }}</h3>
+  <h3 class='groove'> What is your hourly rate?
+    <form action='/clock' method='post'>
+    <input type='number' name='display' value=''><br>
+    <input type='submit' name='enter' value='Enter'>
+  </form>
+  {{ display1 }} dollars per hour
+  <p id = clockInInsert></p><p id = clockOutInsert></p></h3>
+  <h3 class='groove'>Set Time: <input type = time  name = "clockIn"> to <input type = time name = "setClockOutHour"> <button id = "setHours">Set hours</button></h3>
+  <h3 class ='groove'>Total Time Worked: <p id = "insertTotalTime"></p>
+  <p style="text-align:center">
+  <button id = "clockInButton">Clock In</button>
+  <button id = "clockOutButton">Clock Out</button>
+  <button id = "resetHoursButton">Reset Hours</button>
+  </p>
+  <script>
+  const hourlypay = prompt('What is your hourlypay?');
+  const setHours = document.querySelector('#setHours');
+  const clockInButton = document.querySelector("#clockInButton");
+  const clockOutButton = document.querySelector("#clockOutButton");
+  const resetHoursButton = document.querySelector("#resetHoursButton");
+  var clockIn = document.querySelector('clockIn');
+  var clockOut = document.querySelector('setClockOutHour');
+  var clockedIn = false;
+  var hourClockedIn;
+  console.log(hourlypay);
+
+ setHours.addEventListener('click',()=>{
+   document.getElementById("clockInInsert").innerHTML = clockIn;
+   document.getElementById("clockOutInsert").innerHTML = setClockOutHour;
+ });
+
+
+ function totalHours()
+ {
+   x = timeClockedIn;
+   y = timeClockedOut;
+   u = x.split(":");
+   u[0];
+   u[1];
+   v = y.split(":");
+   v[0];
+   v[1];
+   hourInSplit = parseInt(u[0]);
+   minuteInSplit = parseInt(u[1]);
+   hourOutSplit = parseInt(v[0]);
+   minuteOutSplit = parseInt(v[1]);
+
+   hourInModulus = hourInSplit % 12;
+   hourOutModulus = hourOutSplit % 12;
+   hourInMinutes = (hourInModulus * 60) + minuteInSplit;
+   hourOutMinutes = (hourOutModulus * 60) + minuteOutSplit;
+   totalMinutes =  hourOutMinutes - hourInMinutes;
+   if (totalMinutes >= 60)
+   {
+     totalHourFinal = totalMinutes / 60;
+     totalTime = totalHourFinal + "HR:" + totalMinutes + "MIN";
+     document.getElementById("insertTotalTime").innerHTML = totalTime;
+     console.log(totalHourFinal + "HR:" + totalMinutes + "MIN");
+   }
+   else{
+     totalTime = totalMinutes / 60 + " HR";
+     document.getElementById("insertTotalTime").innerHTML = totalTime;
+     console.log(totalMinutes / 60 + " HR");
+   }
+   return parseFloat(totalTime);
+ }
+
+
+ //function payday()
+ //{
+  // if ()
+  //var profit = totalTime * hourlypay;
+  //console.log(profit);
+ //}
+
+
+    function getTime()
+    {
+      var hourClocked = new Date();
+      var in_h = hourClocked.getHours();
+      var in_m = hourClocked.getMinutes();
+      return in_h + ":" + in_m;
+
+    }
+
+    clockInButton.addEventListener("click",() =>
+    {
+
+      console.log("Clicked ");
+      clockInButton.innerHTML = "Clicked";
+      alert("You clocked in at " + getTime() + ".");
+      clockedIn = true;
+      timeClockedIn = getTime();
+      console.log(timeClockedIn);
+    });
+
+    clockOutButton.addEventListener("click",() =>
+    {
+
+      console.log("Clicked ");
+      clockOutButton.innerHTML = "Clicked";
+      alert("You clocked out at " + getTime() + " .");
+      clockedIn = false;
+      timeClockedOut = getTime();
+      console.log(timeClockedOut);
+      var totalTime = totalHours();
+      console.log(totalTime);
+      console.log(hourlypay);
+      var profit = parseFloat(totalTime) * parseFloat(hourlypay);
+      console.log(profit);
+      document.getElementById("myLink").innerHTML=profit;
+    });
+
+
+    resetHoursButton.addEventListener("click",() =>
+    {
+      clockOutButton.innerHTML = "Clicked";
+      if (confirm("Would you like to reset your hours?"))
+      {
+        console.log("Working...?");
+        totalTime = "";
+        document.getElementById("insertTotalTime").innerHTML = totalTime;
+        alert("You reset your hours.");
+      }
+      else {
+        {
+          alert("You did not reset your hours.");
+        }
+      }
+
+    });
+if (clockedIn == true)
+{
+  window.onbeforeunload = function() {
+  return "Please clock out before exiting the page.";
+}
+}
+</script>
+Your Total Pay Today: $<a id="myLink" name= 'pay' href = punchcard.html></a>
+  {% endif %}
+</body>
+</html>
